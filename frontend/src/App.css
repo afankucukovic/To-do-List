@@ -1,38 +1,248 @@
+/* Light theme with purple accents and modern design */
+
 .App {
-    text-align: center;
+  text-align: left;
 }
 
-.App-logo {
-    height: 40vmin;
-    pointer-events: none;
+/* Stats Cards with Gradient Backgrounds */
+.stats-card {
+  @apply bg-white rounded-2xl shadow-lg p-6 transition-all duration-200 hover:shadow-xl;
+  transform: translateY(0);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-        animation: App-logo-spin infinite 20s linear;
-    }
+.stats-card:hover {
+  transform: translateY(-2px);
 }
 
-.App-header {
-    background-color: #0f0f10;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
+.stats-card-total {
+  @apply bg-gradient-to-r from-purple-500 to-indigo-600 text-white rounded-2xl shadow-lg p-6 transition-all duration-200 hover:shadow-xl;
 }
 
-.App-link {
-    color: #61dafb;
+.stats-card-total:hover {
+  transform: translateY(-2px);
 }
 
-@keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+.stats-card-completed {
+  @apply bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-2xl shadow-lg p-6 transition-all duration-200 hover:shadow-xl;
+}
+
+.stats-card-completed:hover {
+  transform: translateY(-2px);
+}
+
+.stats-card-pending {
+  @apply bg-gradient-to-r from-yellow-500 to-orange-600 text-white rounded-2xl shadow-lg p-6 transition-all duration-200 hover:shadow-xl;
+}
+
+.stats-card-pending:hover {
+  transform: translateY(-2px);
+}
+
+.stats-card-rate {
+  @apply bg-gradient-to-r from-blue-500 to-cyan-600 text-white rounded-2xl shadow-lg p-6 transition-all duration-200 hover:shadow-xl;
+}
+
+.stats-card-rate:hover {
+  transform: translateY(-2px);
+}
+
+/* Custom scrollbar for webkit browsers */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100 rounded-full;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-purple-300 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-purple-400;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Focus styles for accessibility */
+button:focus,
+input:focus,
+textarea:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+}
+
+/* Responsive table */
+@media (max-width: 768px) {
+  .overflow-x-auto table {
+    font-size: 0.875rem;
+  }
+  
+  .overflow-x-auto th,
+  .overflow-x-auto td {
+    padding: 0.5rem;
+  }
+}
+
+/* Loading animation */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+/* Button hover effects */
+.hover-lift {
+  transition: all 0.2s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Status badge animations */
+.status-badge {
+  transition: all 0.2s ease;
+}
+
+.status-badge:hover {
+  transform: scale(1.05);
+}
+
+/* Table row hover effects */
+.table-row-hover {
+  transition: all 0.2s ease;
+}
+
+.table-row-hover:hover {
+  background-color: rgba(139, 92, 246, 0.05);
+  transform: translateX(4px);
+}
+
+/* Custom checkbox styling */
+.custom-checkbox {
+  appearance: none;
+  @apply w-5 h-5 border-2 border-purple-300 rounded-md bg-white checked:bg-purple-500 checked:border-purple-500 focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50 transition-all duration-200;
+}
+
+.custom-checkbox:checked::before {
+  content: "✓";
+  @apply text-white text-sm font-bold flex items-center justify-center h-full;
+}
+
+/* Form styling */
+.form-input {
+  @apply w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent text-gray-800 placeholder-gray-500 transition-all duration-200;
+}
+
+.form-input:focus {
+  transform: translateY(-1px);
+}
+
+/* Button styles */
+.btn-primary {
+  @apply bg-gradient-to-r from-purple-500 to-indigo-600 text-white font-semibold py-3 px-6 rounded-xl hover:from-purple-600 hover:to-indigo-700 transition-all duration-200 hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed;
+}
+
+.btn-primary:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  @apply bg-gray-200 text-gray-800 font-semibold py-2 px-4 rounded-xl hover:bg-gray-300 transition-all duration-200;
+}
+
+.btn-danger {
+  @apply text-red-600 hover:text-red-800 hover:bg-red-50 p-2 rounded-lg transition-colors;
+}
+
+/* Card animations */
+.card-enter {
+  animation: cardEnter 0.3s ease-out;
+}
+
+@keyframes cardEnter {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Gradient text */
+.gradient-text {
+  @apply bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent;
+}
+
+/* Container styling */
+.container {
+  max-width: 1200px;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 640px) {
+  .stats-card {
+    @apply p-4;
+  }
+  
+  .container {
+    @apply px-2;
+  }
+  
+  h1 {
+    @apply text-3xl;
+  }
+}
+
+/* Dark mode support (future enhancement) */
+@media (prefers-color-scheme: dark) {
+  /* Keep light theme as per requirements */
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .stats-card {
+    @apply border-2 border-gray-400;
+  }
+  
+  .btn-primary {
+    @apply border-2 border-purple-800;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .stats-card:hover {
+    transform: none;
+  }
 }
