@@ -204,8 +204,6 @@ metadata:
 
 test_plan:
   current_focus:
-    - "Task CRUD API endpoints"
-    - "Task model and MongoDB integration"
     - "Task table display"
     - "Plus button and task creation form"
     - "Status toggle functionality"
